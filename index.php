@@ -1,0 +1,61 @@
+<?php
+
+$errores = '';
+if (isset($_POST['submit'])) {
+    $usuario = $_POST['usuario'];
+    $password = $_POST['password'];
+    if (!empty($usuario)) {
+        $usuario = trim($usuario);
+        $usuario = stripcslashes($usuario);
+        $usuario = strip_tags($usuario);
+        $usuario = htmlspecialchars($usuario, ENT_QUOTES, 'UTF-8');
+        echo "Tu Usuario es: $usuario <br />";
+    } else {
+        $errores .= 'Por favor Ingresa un Usuario <br />';
+    }
+    if (!empty($password)) {
+        $password = filter_var($password, FILTER_SANITIZE_EMAIL);
+        if (!filter_var($password, FILTER_VALIDATE_EMAIL)) {
+            $errores .= 'Por favor ingresa un password valido <br/>';
+        } else {
+            echo "Tu password es: $password <br />";
+        }
+    } else {
+        $errores .= 'Por favor ingresa un password <br />';
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Proyecto</title>
+</head>
+
+<body>
+    <main class="contenido">
+        <img src="https://media.istockphoto.com/id/1331491686/es/vector/dise%C3%B1o-de-elementos.jpg?s=612x612&w=0&k=20&c=zmg79X_NSr0bbyKPO987o2hPg7pYML1g5dpHOuT_1Cs=" alt="Logo Empresa" class="logo-login">
+
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="contenido-formulario" id="formulario">
+
+            <h1 class="contenido-titulo">Titulo del proyecto</h1>
+            <label for="usuario" class="contenido-label">Usuario</label>
+            <input type="text" name="usuario" id="usuario" class="contenido-input" placeholder="Ingrese Usuario">
+            <label for="password" class="contenido-label">Contraseña</label>
+            <input type="password" name="password" id="password" class="contenido-input" placeholder="Ingrese Contraseña">
+            <div class="centrar-btn">
+                <input type="submit" name="ingresar" value="Ingresar" class="contenido-btn" id="btn-login">
+                <span class="loader"></span>
+            </div>
+        </form>
+    </main>
+</body>
+
+<script src="./js/app.js"></script>
+
+</html>
