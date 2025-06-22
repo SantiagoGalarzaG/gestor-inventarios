@@ -1,0 +1,11 @@
+## base de datos
+CREATE DATABASE gestionInventarios;
+
+USE gestionInventarios;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(100) NOT NULL,
+    passwd VARCHAR(100) NOT NULL
+);
+INSERT INTO `users` (`id`, `usuario`, `passwd`) VALUES (NULL, 'admin', 'admin');

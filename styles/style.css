@@ -106,6 +106,23 @@
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
+.alert{
+	display: none;
+	font-family: var(--poppins);
+    padding: .2em .5em;
+    color: #fff;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.alert.error{
+    background: #f2DEDE;
+    border: 1px solid #a94442;
+    color: #a94442;
+}
+.alert.success{
+    background: #4CAF50;
+}
 .contenido-btn::after {
 	border-width: 2px;
 	width: 18px;
@@ -131,6 +148,7 @@
 	height: 48px;
 	color: #000;
 	display: none;
+
 }
 .loader:before,
 .loader:after {
@@ -150,6 +168,8 @@
 	transform: rotateY(70deg);
 	animation-delay: 0.4s;
 }
+
+
 
 @keyframes rotate {
 	0% {

@@ -1,30 +1,3 @@
-<!-- <?php
-
-$errores = '';
-if (isset($_POST['submit'])) {
-    $usuario = $_POST['usuario'];
-    $password = $_POST['password'];
-    if (!empty($usuario)) {
-        $usuario = trim($usuario);
-        $usuario = stripcslashes($usuario);
-        $usuario = strip_tags($usuario);
-        $usuario = htmlspecialchars($usuario, ENT_QUOTES, 'UTF-8');
-        echo "Tu Usuario es: $usuario <br />";
-    } else {
-        $errores .= 'Por favor Ingresa un Usuario <br />';
-    }
-    if (!empty($password)) {
-        $password = filter_var($password, FILTER_SANITIZE_EMAIL);
-        if (!filter_var($password, FILTER_VALIDATE_EMAIL)) {
-            $errores .= 'Por favor ingresa un password valido <br/>';
-        } else {
-            echo "Tu password es: $password <br />";
-        }
-    } else {
-        $errores .= 'Por favor ingresa un password <br />';
-    }
-}
-?> -->
 
 <!DOCTYPE html>
 <html lang="es">
@@ -41,13 +14,14 @@ if (isset($_POST['submit'])) {
     <main class="contenido">
         <img src="https://media.istockphoto.com/id/1331491686/es/vector/dise%C3%B1o-de-elementos.jpg?s=612x612&w=0&k=20&c=zmg79X_NSr0bbyKPO987o2hPg7pYML1g5dpHOuT_1Cs=" alt="Logo Empresa" class="logo-login">
 
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="contenido-formulario" id="formulario">
+        <form action="" method="post" class="contenido-formulario" id="formulario" onsubmit="return validarFormulario(this);">
 
             <h1 class="contenido-titulo">Titulo del proyecto</h1>
             <label for="usuario" class="contenido-label">Usuario</label>
             <input type="text" name="usuario" id="usuario" class="contenido-input" placeholder="Ingrese Usuario">
             <label for="password" class="contenido-label">Contraseña</label>
             <input type="password" name="password" id="password" class="contenido-input" placeholder="Ingrese Contraseña">
+            <span id="alerta" style="display:none;"></span>
             <div class="centrar-btn">
                 <input type="submit" name="ingresar" value="Ingresar" class="contenido-btn" id="btn-login">
                 <span class="loader"></span>
@@ -56,6 +30,6 @@ if (isset($_POST['submit'])) {
     </main>
 </body>
 
-<script src="./js/app.js"></script>
+<script src="./js/app.js"></script> 
 
 </html>
