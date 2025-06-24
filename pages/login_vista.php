@@ -23,7 +23,8 @@
             <input type="password" name="password" id="password" class="contenido-input" placeholder="Ingrese Contraseña">
             <span id="alerta" style="display:none;"></span>
             <div class="centrar-btn">
-                <input type="submit" name="ingresar" value="Ingresar" class="contenido-btn" id="btn-login">
+                <input type="submit" name="ingresar-btn" value="Ingresar" class="contenido-btn" id="btn-login">
+                <input type="hidden" name="ingresar" value="Ingresar">
                 <span class="loader"></span>
             </div>
         </form>
