@@ -37,6 +37,6 @@ function validarFormulario(form) {
             form.submit(); // Esto enviará el formulario después de la validación
         }, 5000);
     }
-    return true; // Prevenir el envío inmediato del formulario
+    return false; // Prevenir el envío inmediato del formulario
     
 }
